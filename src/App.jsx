@@ -117,7 +117,7 @@ function App() {
 
           <div className="calculator-header">
             <div>
-              <h1>RainbowCalc</h1>
+              <h1>ShinyCalc</h1>
             </div>
 
             <div className="status-dot"></div>

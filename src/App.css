@@ -4,68 +4,111 @@
   align-items: center;
   justify-content: center;
   padding: 30px 15px;
+  position: relative;
+  overflow: hidden;
 
   background: linear-gradient(
-    120deg,
-    #ff0080,
-    #7928ca,
-    #007cf0,
-    #00dfd8,
-    #ff0080
+    135deg,
+    #7f160b,
+    #c72d12,
+    #f39b08,
+    #ffd447,
+    #d83a12,
+    #7f160b
   );
 
-  background-size: 300% 300%;
-  animation: rainbowBackground 10s ease infinite;
+  background-size: 400% 400%;
+  animation: backgroundMove 12s ease infinite;
+}
+
+/* Moving background glow */
+
+.app::before,
+.app::after {
+  content: "";
+  position: absolute;
+
+  width: 250px;
+  height: 250px;
+
+  border-radius: 50%;
+
+  filter: blur(60px);
+
+  opacity: 0.35;
+
+  pointer-events: none;
+}
+
+.app::before {
+  background: #ffd447;
+
+  top: 5%;
+  left: 5%;
+
+  animation: floatingGlow 7s ease-in-out infinite;
+}
+
+.app::after {
+  background: #e52b12;
+
+  bottom: 5%;
+  right: 5%;
+
+  animation: floatingGlow 9s ease-in-out infinite reverse;
 }
 
 .page-content {
   width: 100%;
   max-width: 390px;
+
+  position: relative;
+  z-index: 2;
+
+  animation: pageAppear 0.8s ease-out;
 }
 
-/* Student Information */
+/* =========================
+   STUDENT INFORMATION
+========================= */
 
 .student-info {
   text-align: center;
   margin-bottom: 18px;
+
+  animation: nameFloat 3s ease-in-out infinite;
 }
 
 .student-info h2 {
   margin: 0;
 
+  color: #fff9dc;
+
   font-size: 20px;
-  font-weight: 800;
+  font-weight: 900;
+
   letter-spacing: 0.5px;
 
-  background: linear-gradient(
-    90deg,
-    #ff0080,
-    #ff8a00,
-    #ffe600,
-    #00dfd8,
-    #007cf0,
-    #7928ca,
-    #ff0080
-  );
-
-  background-size: 300% auto;
-  animation: rainbowText 5s linear infinite;
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  text-shadow:
+    2px 2px 0 #7f160b,
+    0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .student-info p {
   margin: 5px 0 0;
 
-  color: white;
-  font-size: 13px;
-  font-weight: 600;
+  color: #fff1b0;
 
-  opacity: 0.9;
+  font-size: 13px;
+  font-weight: 700;
+
+  text-shadow:
+    1px 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-/* Calculator */
+/* =========================
+   CALCULATOR
+========================= */
 
 .calculator {
   position: relative;
@@ -75,46 +118,71 @@
 
   border-radius: 28px;
 
-  background: rgba(15, 15, 20, 0.94);
+  background: #35170f;
 
-  border: 2px solid transparent;
-
-  background-clip: padding-box;
+  border: 3px solid #ffc928;
 
   box-shadow:
-    0 25px 70px rgba(0, 0, 0, 0.5),
-    0 0 35px rgba(255, 0, 128, 0.25);
+    0 20px 50px rgba(61, 15, 5, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 
   overflow: hidden;
+
+  animation: calculatorFloat 4s ease-in-out infinite;
 }
 
-/* Moving Rainbow Border */
+/* Animated top stripe */
 
 .calculator::before {
   content: "";
 
   position: absolute;
-  inset: -3px;
 
-  z-index: -1;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 7px;
 
   background: linear-gradient(
     90deg,
-    #ff0080,
-    #ff8a00,
-    #ffe600,
-    #00dfd8,
-    #007cf0,
-    #7928ca,
-    #ff0080
+    #e52b12,
+    #ffd447,
+    #e52b12,
+    #ffd447,
+    #e52b12
   );
 
   background-size: 300% 100%;
 
-  animation: rainbowBorder 5s linear infinite;
+  animation: stripeMove 3s linear infinite;
 }
 
-/* Header */
+/* Moving shine */
+
+.calculator::after {
+  content: "";
+
+  position: absolute;
+
+  top: -100%;
+  left: -70%;
+
+  width: 40%;
+  height: 300%;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  transform: rotate(25deg);
+
+  pointer-events: none;
+
+  animation: shineMove 6s ease-in-out infinite;
+}
+
+/* =========================
+   HEADER
+========================= */
 
 .calculator-header {
   display: flex;
@@ -122,54 +190,55 @@
   justify-content: space-between;
 
   margin-bottom: 20px;
+
+  position: relative;
+  z-index: 2;
 }
 
 .calculator-header h1 {
   margin: 0;
 
-  color: #ffffff;
+  color: #ffd447;
 
-  font-size: 22px;
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: 900;
+
   letter-spacing: -0.5px;
+
+  text-shadow:
+    2px 2px 0 #8b1e0f;
 }
 
 .calculator-header p {
   margin: 4px 0 0;
 
-  color: #8b8b96;
+  color: #f5d99b;
+
   font-size: 12px;
 }
 
-/* Rainbow Dot */
+/* Animated light */
 
 .status-dot {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
 
   border-radius: 50%;
 
-  background: linear-gradient(
-    135deg,
-    #ff0080,
-    #7928ca,
-    #007cf0,
-    #00dfd8,
-    #ffe600
-  );
+  background: #ffd447;
 
-  background-size: 300% 300%;
-
-  animation:
-    rainbowBackground 4s ease infinite,
-    pulse 1.5s ease-in-out infinite;
+  border: 2px solid #e52b12;
 
   box-shadow:
-    0 0 10px #ff0080,
-    0 0 20px #007cf0;
+    0 0 8px #ffd447,
+    0 0 20px rgba(255, 212, 71, 0.8);
+
+  animation: pulseLight 1.5s ease-in-out infinite;
 }
 
-/* Display */
+/* =========================
+   DISPLAY
+========================= */
 
 .display {
   min-height: 125px;
@@ -179,9 +248,9 @@
 
   border-radius: 20px;
 
-  background: rgba(5, 5, 8, 0.95);
+  background: #1d0b07;
 
-  border: 1px solid #292932;
+  border: 2px solid #70351f;
 
   display: flex;
   flex-direction: column;
@@ -190,8 +259,11 @@
 
   overflow: hidden;
 
+  position: relative;
+  z-index: 2;
+
   box-shadow:
-    inset 0 0 25px rgba(124, 92, 255, 0.08);
+    inset 0 0 25px rgba(0, 0, 0, 0.6);
 }
 
 .expression {
@@ -199,7 +271,7 @@
 
   margin-bottom: 8px;
 
-  color: #777783;
+  color: #cda06a;
 
   font-size: 14px;
 }
@@ -207,10 +279,10 @@
 .result {
   width: 100%;
 
-  color: #ffffff;
+  color: #fff5d2;
 
   font-size: 42px;
-  font-weight: 500;
+  font-weight: 600;
 
   letter-spacing: -1px;
 
@@ -218,9 +290,13 @@
 
   overflow: hidden;
   text-overflow: ellipsis;
+
+  animation: resultAppear 0.25s ease;
 }
 
-/* Buttons */
+/* =========================
+   BUTTON GRID
+========================= */
 
 .buttons {
   display: grid;
@@ -228,115 +304,133 @@
   grid-template-columns: repeat(4, 1fr);
 
   gap: 10px;
+
+  position: relative;
+  z-index: 2;
 }
 
-button {
-  position: relative;
+/* =========================
+   BUTTONS
+========================= */
 
+button {
   height: 62px;
 
-  border: none;
-  border-radius: 17px;
+  border: 2px solid #64301d;
 
-  background: #202027;
+  border-radius: 16px;
 
-  color: #f2f2f4;
+  background: #542518;
+
+  color: #fff3d0;
 
   font-size: 19px;
-  font-weight: 600;
+  font-weight: 800;
 
   cursor: pointer;
 
   transition:
     transform 0.15s ease,
-    box-shadow 0.2s ease,
-    background 0.2s ease;
+    background 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 button:hover {
-  transform: translateY(-3px);
+  background: #71301d;
 
-  background: #292930;
+  transform: translateY(-4px) scale(1.02);
 
   box-shadow:
-    0 5px 18px rgba(124, 92, 255, 0.25);
+    0 8px 18px rgba(0, 0, 0, 0.35);
 }
 
 button:active {
-  transform: scale(0.94);
+  transform: scale(0.90);
+
+  box-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* Function Buttons */
+/* =========================
+   FUNCTION BUTTONS
+========================= */
 
 .function {
-  background: #292932;
+  background: #762e1c;
 
-  color: #c0c0ca;
+  color: #ffd447;
 
-  font-size: 14px;
+  border-color: #a74721;
+
+  font-size: 13px;
 }
 
 .function:hover {
-  background: #35353f;
+  background: #963a20;
 
-  box-shadow:
-    0 5px 18px rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }
 
-/* Operators */
+/* =========================
+   OPERATOR BUTTONS
+========================= */
 
 .operator {
-  background: #29243d;
+  background: #e08b05;
 
-  color: #b9a6ff;
+  color: #fffbe5;
+
+  border-color: #ffbd28;
 
   font-size: 24px;
+
+  box-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.25);
 }
 
 .operator:hover {
-  background: #3a3155;
+  background: #f3a30b;
+
+  box-shadow:
+    0 7px 20px rgba(255, 185, 25, 0.5);
+}
+
+/* =========================
+   EQUALS
+========================= */
+
+.equals {
+  background: #d92f16;
 
   color: #ffffff;
 
-  box-shadow:
-    0 5px 20px rgba(124, 92, 255, 0.45);
-}
+  border-color: #ff6138;
 
-/* Equals */
-
-.equals {
-  color: white;
-
-  background: linear-gradient(
-    135deg,
-    #ff0080,
-    #7928ca,
-    #007cf0,
-    #00dfd8
-  );
-
-  background-size: 300% 300%;
-
-  animation: rainbowBackground 5s ease infinite;
-
-  font-size: 25px;
+  font-size: 26px;
 
   box-shadow:
-    0 5px 20px rgba(124, 92, 255, 0.35);
+    0 5px 18px rgba(217, 47, 22, 0.4);
+
+  animation: equalsPulse 2s ease-in-out infinite;
 }
 
 .equals:hover {
-  box-shadow:
-    0 5px 30px rgba(0, 223, 216, 0.5);
+  background: #ef3d20;
+
+  animation: equalsHover 0.6s ease-in-out infinite alternate;
 }
 
-/* Zero */
+/* =========================
+   ZERO
+========================= */
 
 .zero {
   grid-column: span 2;
 }
 
-/* Footer */
+/* =========================
+   FOOTER
+========================= */
 
 .footer {
   display: flex;
@@ -344,16 +438,22 @@ button:active {
   justify-content: space-between;
 
   margin-top: 18px;
+
   padding: 0 4px;
 
-  color: #64646e;
+  color: #a8794f;
 
   font-size: 11px;
+
+  position: relative;
+  z-index: 2;
 }
 
-/* Animations */
+/* =========================
+   ANIMATIONS
+========================= */
 
-@keyframes rainbowBackground {
+@keyframes backgroundMove {
   0% {
     background-position: 0% 50%;
   }
@@ -367,42 +467,132 @@ button:active {
   }
 }
 
-@keyframes rainbowBorder {
-  0% {
-    background-position: 0% 50%;
+@keyframes floatingGlow {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
   }
 
   50% {
-    background-position: 100% 50%;
+    transform: translate(70px, -40px) scale(1.3);
+  }
+}
+
+@keyframes pageAppear {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
   }
 
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes calculatorFloat {
+  0%,
   100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes nameFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes stripeMove {
+  0% {
     background-position: 0% 50%;
   }
+
+  100% {
+    background-position: 300% 50%;
+  }
 }
 
-@keyframes rainbowText {
+@keyframes shineMove {
   0% {
-    background-position: 0% center;
+    left: -70%;
+  }
+
+  50% {
+    left: 130%;
   }
 
   100% {
-    background-position: 300% center;
+    left: 130%;
   }
 }
 
-@keyframes pulse {
+@keyframes pulseLight {
   0%,
   100% {
     transform: scale(1);
+
+    box-shadow:
+      0 0 8px #ffd447,
+      0 0 18px rgba(255, 212, 71, 0.5);
   }
 
   50% {
     transform: scale(1.35);
+
+    box-shadow:
+      0 0 12px #ffd447,
+      0 0 28px rgba(255, 212, 71, 0.9);
   }
 }
 
-/* Mobile */
+@keyframes equalsPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 5px 18px rgba(217, 47, 22, 0.4);
+  }
+
+  50% {
+    box-shadow:
+      0 5px 28px rgba(255, 72, 35, 0.7);
+  }
+}
+
+@keyframes equalsHover {
+  from {
+    transform: translateY(-2px);
+  }
+
+  to {
+    transform: translateY(-6px) scale(1.03);
+  }
+}
+
+@keyframes resultAppear {
+  from {
+    opacity: 0.4;
+    transform: scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 420px) {
   .app {
@@ -424,5 +614,27 @@ button:active {
 
   .result {
     font-size: 36px;
+  }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .app,
+  .student-info,
+  .calculator,
+  .status-dot,
+  .equals,
+  .calculator::before,
+  .calculator::after,
+  .app::before,
+  .app::after {
+    animation: none;
+  }
+
+  button {
+    transition: none;
   }
 }
