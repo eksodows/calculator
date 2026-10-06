@@ -109,8 +109,7 @@ function App() {
 
         {/* Student Information */}
         <div className="student-info">
-          <h2>JOHN EXODUS D. HERNANDEZ</h2>
-          <p>BSIT WMD-3A</p>
+          <h3>JOHN EXODUS D. HERNANDEZ BSIT-3A</h3>
         </div>
 
         {/* Calculator */}
@@ -118,7 +117,7 @@ function App() {
 
           <div className="calculator-header">
             <div>
-              <h1>SimpleCalc</h1>
+              <h1>RainbowCalc</h1>
             </div>
 
             <div className="status-dot"></div>
