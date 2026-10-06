@@ -119,7 +119,6 @@ function App() {
           <div className="calculator-header">
             <div>
               <h1>SimpleCalc</h1>
-              <p>Simple. Fast. Clean.</p>
             </div>
 
             <div className="status-dot"></div>
@@ -220,8 +219,7 @@ function App() {
 
           {/* Footer */}
           <div className="footer">
-            <span>Vite + React</span>
-            <span>Calculator</span>
+            <span>JEDH - Calculator</span>
           </div>
 
         </div>
