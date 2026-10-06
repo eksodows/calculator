@@ -1,0 +1,234 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 15px;
+}
+
+.page-content {
+  width: 100%;
+  max-width: 390px;
+}
+
+/* Student Information */
+
+.student-info {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.student-info h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.student-info p {
+  margin: 5px 0 0;
+  color: #8d8d99;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Calculator */
+
+.calculator {
+  width: 100%;
+  padding: 22px;
+  border-radius: 28px;
+  background: #15151a;
+  border: 1px solid #292930;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* Header */
+
+.calculator-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.calculator-header h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.calculator-header p {
+  margin: 4px 0 0;
+  color: #777783;
+  font-size: 12px;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #7c5cff;
+  box-shadow: 0 0 15px rgba(124, 92, 255, 0.8);
+}
+
+/* Display */
+
+.display {
+  min-height: 125px;
+  padding: 20px;
+  margin-bottom: 18px;
+
+  border-radius: 20px;
+  background: #0d0d10;
+  border: 1px solid #24242b;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  overflow: hidden;
+}
+
+.expression {
+  min-height: 20px;
+  margin-bottom: 8px;
+
+  color: #686872;
+  font-size: 14px;
+}
+
+.result {
+  width: 100%;
+
+  color: #f5f5f7;
+  font-size: 42px;
+  font-weight: 500;
+  letter-spacing: -1px;
+
+  text-align: right;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Buttons */
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+button {
+  height: 62px;
+
+  border: none;
+  border-radius: 17px;
+
+  background: #202027;
+  color: #f2f2f4;
+
+  font-size: 19px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.15s ease;
+}
+
+button:hover {
+  background: #292930;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+/* Function Buttons */
+
+.function {
+  color: #aaaab4;
+  background: #25252c;
+  font-size: 14px;
+}
+
+.function:hover {
+  background: #303039;
+}
+
+/* Operator Buttons */
+
+.operator {
+  background: #29243d;
+  color: #aa95ff;
+  font-size: 24px;
+}
+
+.operator:hover {
+  background: #352e4f;
+}
+
+/* Equals */
+
+.equals {
+  background: #7c5cff;
+  color: #ffffff;
+  font-size: 25px;
+}
+
+.equals:hover {
+  background: #8c70ff;
+}
+
+/* Zero Button */
+
+.zero {
+  grid-column: span 2;
+}
+
+/* Footer */
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 18px;
+  padding: 0 4px;
+
+  color: #55555e;
+  font-size: 11px;
+}
+
+/* Mobile */
+
+@media (max-width: 420px) {
+  .app {
+    padding: 20px 12px;
+  }
+
+  .student-info h2 {
+    font-size: 17px;
+  }
+
+  .calculator {
+    padding: 18px;
+    border-radius: 24px;
+  }
+
+  button {
+    height: 58px;
+  }
+
+  .result {
+    font-size: 36px;
+  }
+}
